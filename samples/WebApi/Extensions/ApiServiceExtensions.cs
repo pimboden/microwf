@@ -7,6 +7,7 @@ using tomware.Microwf.Engine;
 using WebApi.Domain;
 using WebApi.Workflows.Holiday;
 using WebApi.Workflows.Issue;
+using WebApi.Workflows.SoftwareRequest;
 using WebApi.Workflows.Stepper;
 
 namespace WebApi.Extensions
@@ -30,10 +31,12 @@ namespace WebApi.Extensions
 
       services.AddTransient<IWorkflowDefinition, HolidayApprovalWorkflow>();
       services.AddTransient<IWorkflowDefinition, IssueTrackingWorkflow>();
+      services.AddTransient<IWorkflowDefinition, SoftwareRequestWorkflow>();
       services.AddTransient<IWorkflowDefinition, StepperWorkflow>();
 
       services.AddTransient<IHolidayService, HolidayService>();
       services.AddTransient<IIssueService, IssueService>();
+      services.AddTransient<ISoftwareRequestService, SoftwareRequestService>();
       services.AddTransient<IStepperService, StepperService>();
 
       services.AddScoped<IMigrationService, MigrationService>();
@@ -57,6 +60,12 @@ namespace WebApi.Extensions
             Title = "Issue",
             Description = "Simple issue tracking process.",
             Route = "issue"
+          },
+          new WorkflowType {
+            Type = "SoftwareRequestWorkflow",
+            Title = "SoftwareRequest",
+            Description = "Simple software request process.",
+            Route = "softwareRequest"
           },
           new WorkflowType {
             Type = "StepperWorkflow",

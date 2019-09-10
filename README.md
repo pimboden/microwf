@@ -88,5 +88,6 @@ That ensures you are able to build the dotnet related stuff!
 > npm run start
 
 You should see now the login screen. 
-
+Username: admin
+Password: password
 Happy poking!!
