@@ -32,7 +32,7 @@ namespace WebApi
         o.AddPolicy("AllowAllOrigins", builder =>
         {
           builder
-            .WithOrigins("http://localhost:4200")
+            .WithOrigins(new[]{"http://localhost:4200","http://localhost:4201"})
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials()

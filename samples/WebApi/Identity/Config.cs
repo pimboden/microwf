@@ -64,7 +64,7 @@ namespace WebApi.Identity
             "api1"
           },
           AllowOfflineAccess = true,
-          AllowedCorsOrigins = { "http://localhost:4200" }
+          AllowedCorsOrigins = { "http://localhost:4200","http://localhost:4201"  }
         }
       };
     }
@@ -99,6 +99,15 @@ namespace WebApi.Identity
           Password = "password",
           Claims = {
             new Claim(JwtClaimTypes.Name, "bob")
+          }
+        },
+        new TestUser
+        {
+          SubjectId = "4",
+          Username = "pat",
+          Password = "password",
+          Claims = {
+            new Claim(JwtClaimTypes.Name, "pat")
           }
         }
       };
